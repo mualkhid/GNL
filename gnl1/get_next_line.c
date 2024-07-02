@@ -53,3 +53,24 @@ char	*get_next_line(int fd)
 	left_str = ft_after_newline(left_str);
 	return (line);
 }
+
+
+int main()
+{
+ int fd;
+ int i;
+ char *str;
+ i = 0;
+ fd = open("munia.txt", O_RDONLY);
+ str = NULL;
+ while (str != NULL || i == 0)
+ {
+     str = get_next_line(fd);
+     printf("%s", str);
+     free(str);
+     i++;
+ }
+ free(str);
+ close(fd);
+
+}
